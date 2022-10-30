@@ -1,0 +1,29 @@
+{
+  "include": ["src/**/*"], //Only include source files
+  "exclude": ["node_modules", "test", "**/*.spec.ts", "**/*.test.ts"], //Exclude test files
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ES2016",
+
+    /* Modules */
+    "module": "CommonJS",
+    "rootDir": "./src", //directory of typescript source files
+
+    /* Emit */
+    "outDir": "./lib/", //output build to this directory
+    "declaration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Type Checking */
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "alwaysStrict": true,
+    "noImplicitReturns": true,
+
+    /* Completeness */
+    "skipLibCheck": true
+  }
+}

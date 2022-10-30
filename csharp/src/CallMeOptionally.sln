@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LookMumNoHandlebars.CallMeOptionally", "LookMumNoHandlebars.CallMeOptionally\LookMumNoHandlebars.CallMeOptionally.csproj", "{10691C54-9E0D-46D3-AFBE-9FB159388B32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LookMumNoHandlebars.CallMeOptionally.Tests", "LookMumNoHandlebars.CallMeOptionally.Tests\LookMumNoHandlebars.CallMeOptionally.Tests.csproj", "{A917C775-B022-45A1-ACBC-1334E8F3C69B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10691C54-9E0D-46D3-AFBE-9FB159388B32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10691C54-9E0D-46D3-AFBE-9FB159388B32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10691C54-9E0D-46D3-AFBE-9FB159388B32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10691C54-9E0D-46D3-AFBE-9FB159388B32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A917C775-B022-45A1-ACBC-1334E8F3C69B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A917C775-B022-45A1-ACBC-1334E8F3C69B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A917C775-B022-45A1-ACBC-1334E8F3C69B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A917C775-B022-45A1-ACBC-1334E8F3C69B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
