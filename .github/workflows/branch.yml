@@ -1,0 +1,7 @@
+name: Branch
+
+on: [push]
+
+jobs:
+  test:
+    uses: ./.github/workflows/workflow_test.yml
