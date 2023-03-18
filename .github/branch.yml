@@ -2,6 +2,8 @@ name: Branch
 
 on:
   push:
+    branches:
+      - "**"
     branches-ignore:
       - main
       - release
