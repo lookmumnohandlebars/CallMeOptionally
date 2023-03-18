@@ -10,6 +10,12 @@ public static class OptionFactory
     public static Option<TNew> ToOption<T, TNew>(this T? value, Func<T, TNew> mapFunc)
         => value.ToOption().Map(mapFunc);
 
+    public static IEnumerable<Option<T>> ToOptions<T>(this IEnumerable<T?> valueList)
+        => valueList.Select(value => value.ToOption());
+    
+    public static IEnumerable<Option<TNew>> ToOptions<T, TNew>(this IEnumerable<T?> valueList, Func<T, TNew> mapFunc)
+        => valueList.Select(value => value.ToOption(mapFunc));
+
     public static Option<T> ToSafeOption<T>(Func<T> producerFunc)
     {
         try

@@ -1,5 +1,6 @@
 using FluentAssertions;
 using LookMumNoHandlebars.CallMeOptionally.Exceptions;
+using LookMumNoHandlebars.CallMeOptionally.Tests.Helpers;
 
 namespace LookMumNoHandlebars.CallMeOptionally.Tests;
 

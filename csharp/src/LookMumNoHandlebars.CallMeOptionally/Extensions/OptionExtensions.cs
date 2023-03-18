@@ -29,25 +29,41 @@ public static class OptionExtensions
     }
     
     /// <summary> Binds the option to a new option type</summary>
-    /// <param name="option"></param>
-    /// <param name="bindFunc"></param>
+    /// <param name="option">Option on which to perform action</param>
+    /// <param name="bindFunc">Function that that binds the original option type to the new option type</param>
     /// <returns>0ption bound to new type</returns>
     public static Option<TResult> Bind<T, TResult>(this Option<T> option, Func<T, Option<TResult>> bindFunc) {
         bindFunc.ThrowIfNull();
         return option.Match(bindFunc, Option.None<TResult>);
     }
     
+    /// <summary>
+    ///     Map an option type to another option type via an operation.
+    /// </summary>
+    /// <param name="option">Option on which to perform action</param>
+    /// <param name="mapFunc">Function that maps the input option value to a new value (before </param>
+    /// <returns></returns>
     public static Option<TReturn> Map<T, TReturn>(this Option<T> option, Func<T, TReturn> mapFunc) {
         mapFunc.ThrowIfNull();
         return option.Bind(someValue => Option.Some(mapFunc(someValue)));
     }
     
+    /// <summary>
+    ///     
+    /// </summary>
+    /// <param name="option"></param>
+    /// <param name="mapFunc"></param>
+    /// <returns>T</returns>
     public static Option<TResult> FlatMap<T, TResult>(this Option<T> option, Func<T, Option<TResult>> mapFunc)
     {
         mapFunc.ThrowIfNull();
         return option.Match(mapFunc, Option.None<TResult>);
     }
     
+    /// <summary>Indicates whether the option value matches an input, using the defined `Equals` method of the type</summary>
+    /// <param name="option">Input Option</param>
+    /// <param name="value">Value to match against of the same type</param>
+    /// <returns>True if Option is some and value returns true from 'Equals' check</returns>
     public static bool Contains<T>(this Option<T> option, T value)
     {
         return option.Match(

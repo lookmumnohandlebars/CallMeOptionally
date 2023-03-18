@@ -1,11 +1,12 @@
 using FluentAssertions;
 using LookMumNoHandlebars.CallMeOptionally.Extensions;
+using LookMumNoHandlebars.CallMeOptionally.Tests.Helpers;
 
-namespace LookMumNoHandlebars.CallMeOptionally.Tests;
+namespace LookMumNoHandlebars.CallMeOptionally.Tests.Extensions;
 
 public class OptionExtensionsTests
 {
-    private OptionCases _testCases = new OptionCases();
+    private OptionCases _testCases = new();
     
     [Fact]
     public void ValueOrDefault_IfSome_ShouldGiveValue() => _testCases.Int.ValueOrDefault(1).Should().Be(0);

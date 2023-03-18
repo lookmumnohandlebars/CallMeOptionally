@@ -1,6 +1,6 @@
 using AutoFixture;
 
-namespace LookMumNoHandlebars.CallMeOptionally.Tests;
+namespace LookMumNoHandlebars.CallMeOptionally.Tests.Helpers;
 
 
 public class TestModel
