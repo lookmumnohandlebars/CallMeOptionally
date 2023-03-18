@@ -1,0 +1,29 @@
+name: Publish Release
+
+on:
+  push:
+    branches:
+      - main
+      - release
+
+jobs:
+  dotnet-test:
+    name: Dotnet Build & Test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./csharp
+    strategy:
+      matrix:
+        dotnet-version: ["6.0.x", "7.0.x"]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      - name: Build
+        run: dotnet build --configuration Release /warnaserror
+      - name: Test
+        run: dotnet test --no-restore --verbosity normal
