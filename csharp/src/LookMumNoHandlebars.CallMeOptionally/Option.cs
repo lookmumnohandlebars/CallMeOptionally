@@ -75,7 +75,7 @@ public readonly struct Option<T> : IComparable<Option<T>>, IEquatable<Option<T>>
         {
             true when !other._isSome => 1,
             false when other._isSome => -1,
-            _ => Comparer<T>.Default.Compare(_value, other._value)
+            _ => Comparer<T>.Default.Compare(_value!, other._value!)
         };
     }
     public override bool Equals(object? obj) => obj is Option<T> other && Equals(other);
