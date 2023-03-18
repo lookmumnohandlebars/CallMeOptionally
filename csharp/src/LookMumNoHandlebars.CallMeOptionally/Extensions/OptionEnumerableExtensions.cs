@@ -1,5 +1,3 @@
-using Throw;
-
 namespace LookMumNoHandlebars.CallMeOptionally.Extensions;
 
 public static class OptionEnumerableExtensions

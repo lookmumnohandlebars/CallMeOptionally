@@ -1,7 +1,6 @@
 // ReSharper disable MemberCanBePrivate.Global
 
-using Throw;
-
+using LookMumNoHandlebars.CallMeOptionally.Helpers;
 namespace LookMumNoHandlebars.CallMeOptionally.Extensions;
 
 public static class OptionExtensions
