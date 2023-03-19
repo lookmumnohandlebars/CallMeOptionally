@@ -10,5 +10,7 @@ jobs:
   test:
     uses: ./.github/workflows/workflow_test.yml
 
-  version:
-    uses: ./.github/workflows/workflow_version.yml
+  release:
+    uses: ./.github/workflows/workflow_nuget_publish.yml
+    secrets:
+      NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}

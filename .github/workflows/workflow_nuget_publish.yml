@@ -39,4 +39,4 @@ jobs:
         run:
           dotnet nuget push "src/LookMumNoHandlebars.CallMeOptionally/bin/Release/LookMumNoHandlebars.CallMeOptionally.*.nupkg"
           | --source "nuget.org"
-          | --api-key {{ secrets.ACCESS_TOKEN }}
+          | --api-key {{ secrets.NUGET_API_KEY }}
