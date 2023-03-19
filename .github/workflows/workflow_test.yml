@@ -1,13 +1,9 @@
-name: Publish Release
+name: 🧪 Test
 
-on:
-  push:
-    branches:
-      - release
+on: [workflow_call]
 
 jobs:
-  dotnet-test:
-    name: Dotnet Build & Test
+  dotnet:
     runs-on: ubuntu-latest
     defaults:
       run:

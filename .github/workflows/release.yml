@@ -1,0 +1,10 @@
+name: Publish Release
+
+on:
+  push:
+    branches:
+      - release
+
+jobs:
+  test:
+    uses: ./.github/workflows/workflow_test.yml

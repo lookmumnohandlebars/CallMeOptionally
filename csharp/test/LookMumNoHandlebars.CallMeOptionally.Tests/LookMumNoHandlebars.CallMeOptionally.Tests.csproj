@@ -24,7 +24,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\LookMumNoHandlebars.CallMeOptionally\LookMumNoHandlebars.CallMeOptionally.csproj" />
+      <ProjectReference Include="..\..\src\LookMumNoHandlebars.CallMeOptionally\LookMumNoHandlebars.CallMeOptionally.csproj" />
     </ItemGroup>
 
 </Project>

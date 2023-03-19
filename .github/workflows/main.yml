@@ -1,0 +1,16 @@
+name: Check Main
+
+on:
+  push:
+    branches:
+      - main
+      - workflow-test
+
+jobs:
+  test:
+    uses: ./.github/workflows/workflow_test.yml
+
+  release:
+    uses: ./.github/workflows/workflow_nuget_publish.yml
+    secrets:
+      NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}

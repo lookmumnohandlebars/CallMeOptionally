@@ -3,8 +3,12 @@
     <PropertyGroup>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <LangVersion>11</LangVersion>
+        <LangVersion>10</LangVersion>
         <TargetFrameworks>net6.0;netstandard2.1</TargetFrameworks>
+        <PackageId>LookMumNoHandlebars.CallMeOptionally</PackageId>
+        <Authors>LookMumNoHandlebars</Authors>
+        <PackageDescription>Standardised Option Type</PackageDescription>
+        <RepositoryUrl>https://github.com/lookmumnohandlebars/callmeoptionally</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>

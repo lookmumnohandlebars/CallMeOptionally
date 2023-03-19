@@ -1,0 +1,39 @@
+name: 📮 NuGet
+
+on:
+  workflow_call:
+    # inputs:
+    #   RELEASE_VERSION:
+    #     description: "Version of release"
+    #     type: string
+    #     required: true
+    secrets:
+      NUGET_API_KEY:
+        description: "API Key for Nuget release"
+        required: true
+
+jobs:
+  test:
+    uses: ./.github/workflows/workflow_test.yml
+
+  publish:
+    needs: [test]
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./csharp
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set Up .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.0.x
+
+      - name: .NET Pack
+        run: dotnet pack src/LookMumNoHandlebars.CallMeOptionally/LookMumNoHandlebars.CallMeOptionally.csproj --configuration Release
+
+      - name: .NET Nuget push
+        run: dotnet nuget push "src/LookMumNoHandlebars.CallMeOptionally/bin/Release/LookMumNoHandlebars.CallMeOptionally.*.nupkg" --source "nuget.org" --api-key {{ secrets.NUGET_API_KEY }}

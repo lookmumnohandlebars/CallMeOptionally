@@ -1,0 +1,38 @@
+name: 🪶 Version
+
+on:
+  workflow_call:
+    outputs:
+      tag_version:
+        description: "Tagged version"
+        value: ${{ jobs.version.outputs.version_tag }}
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    outputs:
+      version_tag: ${{ steps.tag_version.outputs.tag }}
+    steps:
+      - name: Print targets
+        run: echo "BaseRef ${{ github.base_ref }}, HeadRef ${{ github.head_ref }}"
+
+      - name: Dry Run Version
+        if: ${{ github.base_ref == 'release' }}
+        uses: anothrNick/github-tag-action@1.55.0
+        id: dry_version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: patch
+          DEFAULT_BRANCH: release
+
+      - name: Print Version
+        if: ${{ github.base_ref == 'release' }}
+        run: gh pr comment main --body "🚀 Release Version ${{steps.dry_version.outputs.tag }}"
+
+      - name: Bump version and push 'release' }}
+        id: tag_version
+        uses: anothrNick/github-tag-action@1.55.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: patch
+          DEFAULT_BRANCH: release
