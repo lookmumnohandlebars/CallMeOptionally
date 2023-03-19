@@ -4,7 +4,11 @@ on:
   push:
     branches:
       - main
+      - workflow-test
 
 jobs:
   test:
     uses: ./.github/worflows/workflow_test.yml
+
+  version:
+    uses: ./.github/workflows/workflow_version.yml

@@ -1,9 +1,9 @@
-name: Test
+name: 🧪 Test
 
 on: [workflow_call]
 
 jobs:
-  dotnet-test:
+  dotnet:
     runs-on: ubuntu-latest
     defaults:
       run:

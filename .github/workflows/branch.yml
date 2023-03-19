@@ -1,6 +1,10 @@
 name: Branch
 
-on: [push]
+on:
+  push:
+    branches-ignore:
+      - "main"
+      - "release"
 
 jobs:
   test:
