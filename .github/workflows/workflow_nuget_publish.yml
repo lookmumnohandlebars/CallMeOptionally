@@ -2,11 +2,11 @@ name: 📮 NuGet
 
 on:
   workflow_call:
-    inputs:
-      RELEASE_VERSION:
-        description: "Version of release"
-        type: string
-        required: true
+    # inputs:
+    #   RELEASE_VERSION:
+    #     description: "Version of release"
+    #     type: string
+    #     required: true
     secrets:
       NUGET_API_KEY:
         description: "API Key for Nuget release"
