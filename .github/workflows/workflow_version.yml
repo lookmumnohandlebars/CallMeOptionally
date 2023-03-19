@@ -3,7 +3,7 @@ name: 🪶 Version
 on:
   workflow_call:
     outputs:
-      version:
+      versionr:
         description: "Tagged version"
         value: ${{ jobs.version.outputs.version_tag }}
 
