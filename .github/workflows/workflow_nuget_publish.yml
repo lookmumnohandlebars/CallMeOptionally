@@ -1,10 +1,15 @@
-name: NuGet
+name: 📮 NuGet
 
 on:
   workflow_call:
+    inputs:
+      RELEASE_VERSION:
+        description: "Version of release"
+        type: string
+        required: true
     secrets:
-      GITHUB_TOKEN:
-        description: "Github token passed from the caller workflow"
+      NUGET_API_KEY:
+        description: "API Key for Nuget release"
         required: true
 
 jobs:
@@ -22,12 +27,6 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@1.55.0 # Don't use @master unless you're happy to test the latest version
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          WITH_V: true
-
       - name: Set Up .NET
         uses: actions/setup-dotnet@v3
         with:
@@ -36,5 +35,8 @@ jobs:
       - name: .NET Pack
         run: dotnet pack --configuration Release
 
-      - name: .NET NuGet push
-        run: dotnet nuget push "src/LookMumNoHandlebars.CallMeOptionally/bin/Release/LookMumNoHandlebars.CallMeOptionally.*.nupkg" --source "github" --api-key {{ }}
+      - name: .NET Nuget push
+        run:
+          dotnet nuget push "src/LookMumNoHandlebars.CallMeOptionally/bin/Release/LookMumNoHandlebars.CallMeOptionally.*.nupkg"
+          | --source "nuget.org"
+          | --api-key {{ secrets.ACCESS_TOKEN }}

@@ -15,12 +15,13 @@ jobs:
     steps:
       - name: Print targets
         run: echo "BaseRef ${{ github.base_ref }}, HeadRef ${{ github.head_ref }}"
+
       - name: Dry Run Version
         if: ${{ github.base_ref == "release" }}
         uses: anothrNick/github-tag-action@1.55.0
         id: dry_version
         env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
           DEFAULT_BRANCH: release
 
@@ -33,6 +34,6 @@ jobs:
         id: tag_version
         uses: anothrNick/github-tag-action@1.55.0
         env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
           DEFAULT_BRANCH: release
