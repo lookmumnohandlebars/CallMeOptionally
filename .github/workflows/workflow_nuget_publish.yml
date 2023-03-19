@@ -33,10 +33,7 @@ jobs:
           dotnet-version: 6.0.x
 
       - name: .NET Pack
-        run: dotnet pack --configuration Release
+        run: dotnet pack src/LookMumNoHandlebars.CallMeOptionally/LookMumNoHandlebars.CallMeOptionally.csproj --configuration Release
 
       - name: .NET Nuget push
-        run:
-          dotnet nuget push "src/LookMumNoHandlebars.CallMeOptionally/bin/Release/LookMumNoHandlebars.CallMeOptionally.*.nupkg"
-          | --source "nuget.org"
-          | --api-key {{ secrets.NUGET_API_KEY }}
+        run: dotnet nuget push "src/LookMumNoHandlebars.CallMeOptionally/bin/Release/LookMumNoHandlebars.CallMeOptionally.*.nupkg" --source "nuget.org" --api-key {{ secrets.NUGET_API_KEY }}
