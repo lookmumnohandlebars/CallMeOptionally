@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    uses: ./.github/worflows/workflow_test.yml
+    uses: ./.github/workflows/workflow_test.yml
 
   version:
     uses: ./.github/workflows/workflow_version.yml
