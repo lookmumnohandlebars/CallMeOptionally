@@ -17,7 +17,7 @@ jobs:
         run: echo "BaseRef ${{ github.base_ref }}, HeadRef ${{ github.head_ref }}"
 
       - name: Dry Run Version
-        if: ${{ github.base_ref == "release" }}
+        if: ${{ github.base_ref == 'release' }}
         uses: anothrNick/github-tag-action@1.55.0
         id: dry_version
         env:
@@ -26,11 +26,10 @@ jobs:
           DEFAULT_BRANCH: release
 
       - name: Print Version
-        if: ${{ github.base_ref == "release" }}
+        if: ${{ github.base_ref == 'release' }}
         run: gh pr comment main --body "🚀 Release Version ${{steps.dry_version.outputs.tag }}"
 
-      - name: Bump version and push tag
-        if: ${{ github.base_ref == "release" }}
+      - name: Bump version and push 'release' }}
         id: tag_version
         uses: anothrNick/github-tag-action@1.55.0
         env:
